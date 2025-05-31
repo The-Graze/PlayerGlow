@@ -27,7 +27,6 @@ namespace PlayerGlow
                 PlayerLight.gameObject.SetActive(true);
                 PlayerLight.name = "PlayerLight";
             }
-            baseLight.gameObject.SetActive(true);
         }
     }
     class PlayerLightHandler : MonoBehaviour
