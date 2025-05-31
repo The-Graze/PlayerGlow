@@ -24,14 +24,17 @@ namespace PlayerGlow
                 PlayerLight.AddComponent<PlayerLightHandler>();
                 PlayerLight.transform.SetParent(rig.transform, false);
                 PlayerLight.transform.localPosition = Vector3.zero;
-                FindObjectOfType<BetterDayNightManager>().OnEnable();
+                PlayerLight.gameObject.SetActive(true);
+                PlayerLight.name = "PlayerLight";
             }
+            baseLight.gameObject.SetActive(true);
         }
     }
     class PlayerLightHandler : MonoBehaviour
     {
         VRRig rig;
         GameLight light;
+        Color LightColor;
 
         void OnEnable()
         {
@@ -45,7 +48,8 @@ namespace PlayerGlow
         {
             if (rig && light)
             {
-                light.light.color = rig.playerColor;
+                LightColor = rig.playerColor;
+                light.light.color = LightColor;
             }
             else
             {
